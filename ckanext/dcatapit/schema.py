@@ -308,6 +308,16 @@ def get_custom_package_schema():
             'help': _('package_is_version_of_help')
         },
         {
+            'name': 'spatial',
+            'validator': ['ignore_missing'],
+            'element': 'input',
+            'type': 'text',
+            'label': 'Spatial Test',
+            'placeholder': 'spatial test',
+            'is_required': False,
+            'help': '',
+        },
+        {
             'name': 'conforms_to',
             'validator': ['ignore_missing', 'dcatapit_conforms_to'],
             'element': 'conforms_to',
