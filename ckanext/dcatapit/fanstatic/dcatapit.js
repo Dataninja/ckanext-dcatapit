@@ -442,7 +442,7 @@ ckan.module('dcatapit-temporal-coverage', function($){
         sub_set_error: function(elm){
             if (typeof this.options.error == 'string' && this.options.error.length> 1){
 
-                $('.control-group', elm).addClass('error');
+                $('.form-group', elm).addClass('error');
             }
         },
         _post_extract: function(values){
@@ -802,14 +802,14 @@ ckan.module('dcatapit-edit-form', function($){
             var nav = $('<div class="form-nav"></div>');
             if (prev_tab !== null){
                 var title = prev_tab.find('a span').html();
-                var prev = $('<span class="prev-item form-nav-item btn btn-small"><a title="prev: '+ title +'" href="#">'+ title +'</a></span>');
+                var prev = $('<span class="prev-item form-nav-item btn btn-default btn-small" role="button"><a title="prev: '+ title +'" href="#">'+ title +'</a></span>');
                 nav.append(prev);
                 prev.find('a').click(function(){ prev_tab.find('a').click()});
             }
             if (next_tab !== null){
                 var title = next_tab.find('a span').html();
                 if (title !== undefined){
-                    var next = $('<span class="next-item form-nav-item btn btn-small"><a title="next: '+ title +'" href="#">'+ title +'</a></span>');
+                    var next = $('<span class="next-item form-nav-item btn btn-default btn-small" role="button"><a title="next: '+ title +'" href="#">'+ title +'</a></span>');
                     nav.append(next);
                     next.find('a').click(function(){ next_tab.find('a').click()});
                 }
@@ -820,7 +820,7 @@ ckan.module('dcatapit-edit-form', function($){
         collect_extras: function(to_tab, config){
             var tabs = to_tab['tab'];
             var form = to_tab['form'];
-            var parent_name  = config['parent'] || '.control-group';
+            var parent_name  = config['parent'] || '.form-group';
 
             var extras = $('[data-module="custom-fields"]');
             form.append(extras);
@@ -852,7 +852,7 @@ ckan.module('dcatapit-edit-form', function($){
                     var field = $('[name="' + elm['name'] +'"]');
                 }
                 // customized parent lookup
-                var parent_name  = elm['parent'] || '.control-group';
+                var parent_name  = elm['parent'] || '.form-group';
                 var field_container = field.parents(parent_name);
                 if  (field_container.length > 0){
                     form_p.append(field_container);

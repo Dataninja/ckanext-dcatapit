@@ -31,9 +31,7 @@
     cursor: pointer;
     margin-top: 5px;
     margin-bottom: 5px;
-    padding-left: 130px;
     display: inline-block;
-    width: 100%;
     box-sizing: border-box;
 }
 
@@ -56,14 +54,22 @@
 .bold {
     font-weight: bold;
 }
-.control-custom .remove {
+.control-full .remove {
     font-size: 14px;
+}
+#information-tab-container > div,
+.controls .input-group {
+    margin-top: 2em;
+    margin-bottom: 0;
+}
+
+#information-tab-container > div:not(.form-group) {
+    margin-top: 0;
 }
 
 .conforms_to .remove, .alternate_identifier .remove, .creator .remove, .temporal-coverage .remove, .theme .remove{
     display: inline-block;
     padding-right: 10px;
-    width: 100%;
     padding-right: 20px;
     text-align: right;
     cursor: pointer;
@@ -89,6 +95,10 @@
     left: 5px;
     padding: 6px 8px;
     line-height: 8px;
+}
+
+.remove .button i {
+    font-size: initial;
 }
 
 .removable {
@@ -152,6 +162,11 @@ body .ui-tooltip {
     border-style: solid;
     border-width: 1px;
     border-radius: 3px;
+}
+
+#tabs-container .ui-tabs-anchor {
+    padding-top: 6px;
+    padding-bottom: 6px;
 }
 
 /*!
@@ -219,6 +234,14 @@ ul.ui-tabs-nav {
 
 .form-nav {
     padding: 6pt;
+}
+
+.form-actions {
+    margin-top: 5em;
+}
+
+.form-actions .control-required-message {
+    float: right;
 }
 
 
@@ -518,88 +541,88 @@ ul.ui-tabs-nav {
 	width: 1px;
 }
 
-.removable .control-group,
-.removable.control-group {
+.removable .form-group,
+.removable.form-group {
     display: flex;
 }
 
-.removable .control-group .control-label,
-.removable.control-group .control-label {
+.removable .form-group .control-label,
+.removable.form-group .control-label {
     padding-right: 8px;
     width: 120px;
 }
 
-.removable .control-group .controls,
-.removable.control-group  .controls {
+.removable .form-group .controls,
+.removable.form-group  .controls {
     flex: 1;
     margin-left: 0;
 }
 
-.removable .control-group .controls .span11 .add_new,
-.removable.control-group  .controls .span11 .add_new {
+.removable .form-group .controls .span11 .add_new,
+.removable.form-group  .controls .span11 .add_new {
     padding: 0;
 }
 
-.removable .control-group .controls .span11 .reference_documentation,
-.removable.control-group  .controls .span11 .reference_documentation {
+.removable .form-group .controls .span11 .reference_documentation,
+.removable.form-group  .controls .span11 .reference_documentation {
     display: flex;
 }
 
-.removable .control-group .controls .span11 .reference_documentation,
-.removable.control-group  .controls .span11 .reference_documentation {
+.removable .form-group .controls .span11 .reference_documentation,
+.removable.form-group  .controls .span11 .reference_documentation {
     display: flex;
 }
 
-.removable .control-group .controls .span11 .reference_documentation + .reference_documentation,
-.removable.control-group  .controls .span11 .reference_documentation + .reference_documentation {
+.removable .form-group .controls .span11 .reference_documentation + .reference_documentation,
+.removable.form-group  .controls .span11 .reference_documentation + .reference_documentation {
     margin-top: 8px;
 }
 
-.removable .control-group .controls .span11 .reference_documentation .remove,
-.removable.control-group  .controls .span11 .reference_documentation .remove {
+.removable .form-group .controls .span11 .reference_documentation .remove,
+.removable.form-group  .controls .span11 .reference_documentation .remove {
   margin: 0;
   display: flex;
   margin-left: 5px;
 }
 
-.removable .control-group .controls .span11 .reference_documentation .remove .button,
-.removable.control-group  .controls .span11 .reference_documentation .remove .button {
+.removable .form-group .controls .span11 .reference_documentation .remove .button,
+.removable.form-group  .controls .span11 .reference_documentation .remove .button {
     width: 30px;
     margin: auto;
     top: auto;
     left: auto;
 }
 
-.removable .control-group .controls .span11 .reference_documentation input,
-.removable.control-group  .controls .span11 .reference_documentation input {
+.removable .form-group .controls .span11 .reference_documentation input,
+.removable.form-group  .controls .span11 .reference_documentation input {
     flex: 1;
     max-width: none;
     width: auto;
 }
 
-.removable .control-group:last-child{
+.removable .form-group:last-child{
     margin-bottom: 0;
 }
 
-.removable .control-group .controls.editor,
-.removable.control-group  .controls.editor {
+.removable .form-group .controls.editor,
+.removable.form-group  .controls.editor {
     display: flex;
 }
 
-.removable .control-group .controls.editor .input-prepend,
-.removable.control-group  .controls.editor .input-prepend {
+.removable .form-group .controls.editor .input-group,
+.removable.form-group  .controls.editor .input-group {
     flex: 1;
     display: flex;
 }
 
-.removable .control-group .controls.editor .input-prepend input,
-.removable.control-group  .controls.editor .input-prepend input {
+.removable .form-group .controls.editor .input-group input,
+.removable.form-group  .controls.editor .input-group input {
     flex: 2;
 }
 
 
-.removable .control-group .controls.editor .remove,
-.removable.control-group  .controls.editor .remove {
+.removable .form-group .controls.editor .remove,
+.removable.form-group  .controls.editor .remove {
     width: 30px !important;
     margin: 0;
 }

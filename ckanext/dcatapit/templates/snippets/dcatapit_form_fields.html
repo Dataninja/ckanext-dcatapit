@@ -13,7 +13,7 @@
                                  type=field.type,
                                  value=h.format((data[field.name] or ''), '%Y-%m-%d', field.type),
                                  error=errors[field.name],
-                                 classes=['control-medium'],
+                                 attrs={"class":"form-control"},
                                  is_required=field.is_required,
                                  help=field.help) }}
 
@@ -39,7 +39,6 @@
                                  placeholder=field.placeholder,
                                  value=data[field.name],
                                  error=errors[field.name],
-                                 classes=['control-full'],
                                  attrs=tag_attrs,
                                  is_required=field.is_required,
                                  help=field.help) }}
@@ -65,7 +64,6 @@
                               error=errors[field.name],
                               options=options,
                               type=field.type,
-                              classes=['control-full'],
                               is_required=field.is_required,
                               help=field.help)
                   }}
@@ -82,7 +80,6 @@
                               error=errors[field.name],
                               options=options,
                               type=field.type,
-                              classes=['control-full'],
                               is_required=field.is_required)
                   }}
 
@@ -149,7 +146,6 @@
                                     placeholder=field.placeholder,
                                     value=data[field.name],
                                     error=errors[field.name],
-                                    classes=['control-full'],
                                     help=field.help) }}
 
             {% elif field.element == 'conforms_to' %}
@@ -220,6 +216,7 @@
                                                     limit_to=config.limit_to,
                                                     placeholder_name=field.placeholder_name,
                                                     placeholder_url=field.placeholder_url,
+                                                    classes=['editor'],
                                                     help=field.help) }}
 
 

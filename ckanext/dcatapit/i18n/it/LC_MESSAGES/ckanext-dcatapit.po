@@ -78,11 +78,11 @@ msgstr "Data di creazione del catalogo"
 
 #: ckanext/dcatapit/schema.py:69
 msgid "EMail"
-msgstr "email"
+msgstr "E-mail"
 
 #: ckanext/dcatapit/schema.py:70
 msgid "organization email"
-msgstr "email dell'organizzazione"
+msgstr "E-mail dell'organizzazione"
 
 #: ckanext/dcatapit/schema.py:78
 msgid "Telephone"
@@ -102,7 +102,7 @@ msgstr "URL del sito dell'organizzazione"
 
 #: ckanext/dcatapit/schema.py:99
 msgid "region name"
-msgstr "Regione"
+msgstr "Regione in cui opera l'organizzazione"
 
 #: ckanext/dcatapit/schema.py:112
 msgid "organization IPA/IVA code"
@@ -839,7 +839,7 @@ msgstr "Ultimo aggiornamento"
 
 #: ckanext/dcatapit/templates/package/snippets/package_basic_fields.html:15
 msgid "Information"
-msgstr "Informazioni Generali"
+msgstr "Informazioni generali"
 
 #: ckanext/dcatapit/templates/package/snippets/package_basic_fields.html:30
 msgid "Classification"
@@ -851,11 +851,11 @@ msgstr "Soggetti"
 
 #: ckanext/dcatapit/templates/package/snippets/package_basic_fields.html:45
 msgid "Temporal"
-msgstr "Riferimenti Temporali"
+msgstr "Riferimenti temporali"
 
 #: ckanext/dcatapit/templates/package/snippets/package_basic_fields.html:54
 msgid "Spatial"
-msgstr "Riferimenti Geografici"
+msgstr "Riferimenti geografici"
 
 #: ckanext/dcatapit/templates/package/snippets/package_basic_fields.html:60
 msgid "Standards"
@@ -863,7 +863,7 @@ msgstr "Standards"
 
 #: ckanext/dcatapit/templates/package/snippets/package_basic_fields.html:65
 msgid "Related Datasets"
-msgstr "Datasets Collegati"
+msgstr "Datasets collegati"
 
 #: ckanext/dcatapit/templates/package/snippets/package_basic_fields.html:71
 msgid "Additional Info"
