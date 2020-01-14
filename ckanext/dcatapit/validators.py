@@ -111,9 +111,9 @@ def dcatapit_conforms_to(value, context):
     except (TypeError, ValueError,):
         try:
             old_data = value.split(',')
-            return json.dumps([{'identifier': v, 
-                                'title': {}, 
-                                'description': {}, 
+            return json.dumps([{'identifier': v,
+                                'title': {},
+                                'description': {},
                                 'referenceDocumentation': []} for v in old_data])
         except (AttributeError, TypeError, ValueError,):
             raise Invalid(_("Invalid payload for conforms_to"))
@@ -132,7 +132,7 @@ def dcatapit_conforms_to(value, context):
         _ref = elm.pop('_ref', None)
         if _ref and not elm.get('uri'):
             elm['uri'] = _ref
-            
+
         for k in elm.keys():
             if k not in allowed_keys:
                 raise Invalid(_("Unexpected {} key in conforms_to value").format(k))
@@ -154,7 +154,7 @@ def dcatapit_conforms_to(value, context):
                 continue
             if not isinstance(prop_val, allowed_types):
                 raise Invalid(_("conforms_to property {} is not valid type").format(prop_name))
-           
+
             # {lang -> value} mapping
             if allowed_types == dict:
                 for k, v in prop_val.items():
@@ -180,7 +180,7 @@ def dcatapit_conforms_to(value, context):
 
                         url_validator('ref_doc',
                                       {'ref_doc': ref_doc},
-                                      errors, 
+                                      errors,
                                       {'model': None, 'session': None})
                         if errors['ref_doc']:
                             raise Invalid(errors['ref_doc'])
@@ -322,7 +322,8 @@ def parse_date(val, default=None):
 def serialize_date(val):
     if not val:
         return
-    return val.strftime(DATE_FORMATS[0])
+    #return val.strftime(DATE_FORMATS[0]) # See https://stackoverflow.com/questions/10263956/use-datetime-strftime-on-years-before-1900-require-year-1900
+    return "-".join(reversed(val.isoformat().strip().split("T")[0].split("-")))
 
 
 def parse_nullable_date(val):
@@ -360,7 +361,7 @@ def dcatapit_temporal_coverage(value, context):
             parsed = allowed_keys[k](v)
             if parsed:
                tmp[k] = parsed
-        
+
         if not tmp.get('temporal_start'):
             raise Invalid(_("Temporal coverage should contain start element"))
 
@@ -398,10 +399,10 @@ def dcatapit_subthemes(value, context):
 
     allowed_keys_set = set(allowed_keys.keys())
     check_with_db = context.get('dcatapit_subthemes_check_in_db') if context else True
-    
+
     if not data:
         raise Invalid(_("Theme data should not be empty"))
-    
+
     for item in data:
         if not isinstance(item, dict):
             raise Invalid(_("Invalid theme item, should be a dict, got {}".format(type(item))))
@@ -427,7 +428,7 @@ def dcatapit_subthemes(value, context):
             slist = [s.uri for s in Subtheme.for_theme(theme_name)]
         except ValueError:
             raise Invalid(_("Invalid theme {}".format(theme_name)))
-         
+
         for s in subthemes:
             if s not in slist:
                 raise Invalid(_("Invalid subtheme: {}".format(s)))
