@@ -197,7 +197,8 @@ def format(value, _format='%d-%m-%Y', _type=None):
 
                 if date and isinstance(date, datetime.date):
                     try:
-                        date = date.strftime(_format)
+                        #date = date.strftime(_format) # See https://stackoverflow.com/questions/10263956/use-datetime-strftime-on-years-before-1900-require-year-1900
+                        date = "-".join(reversed(date.isoformat().strip().split("T")[0].split("-")))
                         return date
                     except ValueError, err:
                         log.warning("cannot reformat %s value (from %s) to %s format: %s",

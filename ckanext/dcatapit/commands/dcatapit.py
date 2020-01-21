@@ -616,14 +616,16 @@ def update_temporal_coverage(pdata):
                 pdata['extras'].pop(idx)
 
     try:
-        tstart = validators.parse_date(tstart).strftime(DATE_FORMAT)
+        #tstart = validators.parse_date(tstart).strftime(DATE_FORMAT) # See https://stackoverflow.com/questions/10263956/use-datetime-strftime-on-years-before-1900-require-year-1900
+        tstart = "-".join(reversed(validators.parse_date(tstart).isoformat().strip().split("T")[0].split("-")))
     except (Invalid, ValueError, TypeError,), err:
         if tstart is not None:
             print (u"dataset {}: can't use {} as temporal coverage start: {}"
                     .format(pdata['name'], tstart, err)).encode('utf-8')
         tstart = None
     try:
-        tend = validators.parse_date(tend).strftime(DATE_FORMAT)
+        #tend = validators.parse_date(tend).strftime(DATE_FORMAT) # See https://stackoverflow.com/questions/10263956/use-datetime-strftime-on-years-before-1900-require-year-1900
+        tend = "-".join(reversed(validators.parse_date(tend).isoformat().strip().split("T")[0].split("-")))
     except (Invalid, ValueError, TypeError,), err:
         if tend is not None:
             print (u"dataset {}: can't use {} as temporal coverage end: {}"

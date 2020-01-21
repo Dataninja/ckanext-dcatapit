@@ -482,7 +482,8 @@ class DCATAPITPackagePlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm,
                 tmp_value = validators.parse_date(df_value, df_value)
                 if isinstance(tmp_value, datetime.date):
                     try:
-                        tmp_value = tmp_value.strftime(fdef.get('format') or '%d-%m-%Y')
+                        #tmp_value = tmp_value.strftime(fdef.get('format') or '%d-%m-%Y') # See https://stackoverflow.com/questions/10263956/use-datetime-strftime-on-years-before-1900-require-year-1900
+                        tmp_value = "-".join(reversed(tmp_value.isoformat().strip().split("T")[0].split("-")))
                     except ValueError, err:
                         log.warning("dataset %s, field %s: cannot reformat date for %s (from input %s): %s", 
                                     pkg_dict['name'], fname, tmp_value, df_value, err, exc_info=err)
