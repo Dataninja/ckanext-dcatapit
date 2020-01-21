@@ -312,10 +312,10 @@ def get_custom_package_schema():
             'validator': ['ignore_missing'],
             'element': 'input',
             'type': 'text',
-            'label': 'Spatial Test',
-            'placeholder': 'spatial test',
+            'label': _('Spatial extent'),
+            'placeholder': _('the spatial extent of dataset'),
             'is_required': False,
-            'help': '',
+            'help': _('package_spatial_help'),
         },
         {
             'name': 'conforms_to',
