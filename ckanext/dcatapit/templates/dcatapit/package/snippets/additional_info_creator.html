@@ -1,0 +1,16 @@
+{% block dcatapit_additional_info_creator %}
+<tr>
+    {% if loop.index == 1 %}
+    <th scope="row" rowspan="{{ loop.length }}" class="dataset-label">
+        {{ _(label) }}
+    </th>
+    {% endif %}
+    <td class="dataset-details">
+        {% if creator_name %}
+        <span class="bold">{{_('Name')}}: </span><span>{{ creator_name }}</span>
+        <br/>
+        {% endif %}
+        <span class="bold">IPA/IVA: </span><span>{{ creator_identifier }}</span>
+    </td>
+</tr>
+{% endblock %}
