@@ -809,7 +809,7 @@ ckan.module('dcatapit-edit-form', function($){
             if (next_tab !== null){
                 var title = next_tab.find('a span').html();
                 if (title !== undefined){
-                    var next = $('<span class="next-item form-nav-item btn btn-default btn-small" role="button"><a title="next: '+ title +'" href="#">'+ title +'</a></span>');
+                    var next = $('<span class="next-item form-nav-item btn btn-secondary btn-small" role="button"><a title="next: '+ title +'" href="#">'+ title +'</a></span>');
                     nav.append(next);
                     next.find('a').click(function(){ next_tab.find('a').click()});
                 }
